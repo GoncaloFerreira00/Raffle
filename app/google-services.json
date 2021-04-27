@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "24454200207",
+    "firebase_url": "https://company-49500-default-rtdb.firebaseio.com",
+    "project_id": "company-49500",
+    "storage_bucket": "company-49500.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:24454200207:android:4a4fc107ab7b0ae4e5a9fa",
+        "android_client_info": {
+          "package_name": "com.example.company"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "24454200207-ojtfq5pgm1g1k3qiv1s92k60di9fpdim.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCsMnqgSoUwt_iFJZL_1jYyd7VCu2He9c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "24454200207-ojtfq5pgm1g1k3qiv1s92k60di9fpdim.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:24454200207:android:12c5890fb340b4e9e5a9fa",
+        "android_client_info": {
+          "package_name": "com.example.raffle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "24454200207-ojtfq5pgm1g1k3qiv1s92k60di9fpdim.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCsMnqgSoUwt_iFJZL_1jYyd7VCu2He9c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "24454200207-ojtfq5pgm1g1k3qiv1s92k60di9fpdim.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

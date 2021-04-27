@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorOne">#FCC151</color>
+    <color name="colorTwo">#E09B48</color>
+    <color name="colorThree">#F79A5C</color>
+    <color name="colorFour">#E06F48</color>
+    <color name="colorFive">#FC6351</color>
+    <color name="colorTextBlack">#000000</color>
+    <color name="colorTextWhite">#FFFFFF</color>
+    <color name="colorTexGray">#8E8585</color>
+    <color name="colorTrans">#008E8585</color>
+</resources>

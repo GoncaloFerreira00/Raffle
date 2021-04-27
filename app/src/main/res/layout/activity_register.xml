@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".MainActivity">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorTextWhite"
+    tools:context=".Register">
+
+    <EditText
+        android:id="@+id/edit_name_register"
+        android:layout_width="246dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="80dp"
+        android:backgroundTint="@color/colorOne"
+        android:ems="10"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:padding="3dp"
+        android:textColor="@color/colorTextBlack"
+        android:textColorHint="@color/colorTexGray"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <Button
+        android:id="@+id/btn_regist_register"
+        android:layout_width="151dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="112dp"
+        android:layout_marginBottom="60dp"
+        android:backgroundTintMode="screen"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:text=" Registar"
+        android:textColor="@color/colorOne"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/edit_name_register"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="@+id/edit_name_register"
+        app:layout_constraintTop_toBottomOf="@+id/edit_name_register" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="254dp"
+        android:layout_height="259dp"
+        android:layout_marginStart="139dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="146dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_white" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>

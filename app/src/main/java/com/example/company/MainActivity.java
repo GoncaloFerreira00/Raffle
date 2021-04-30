@@ -19,6 +19,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.Toast;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     Utils utils = new Utils();
 
     private Button btnCopy, btnAcess, btnCopySoldNum;
+    private ImageButton btnDeleteName;
     private ScrollView scroll;
     private EditText editname;
     private ArrayList<String> check = new ArrayList<String>();
@@ -143,7 +145,6 @@ public class MainActivity extends AppCompatActivity {
                                             //remove number to available numbers
                                             myRef.child(keys.get((int) id)).removeValue();
                                             Tostas.success(MainActivity.this, "Vendido", Toast.LENGTH_LONG);
-                                            editname.setText("");
 
                                             //inserting number to sold numbers value
                                             DatabaseReference myRefSoldValue = mDataBase.getReference("Sold Numbers Value").push();
@@ -302,6 +303,13 @@ public class MainActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 v.getParent().requestDisallowInterceptTouchEvent(true);
                 return false;
+            }
+        });
+
+        btnDeleteName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                editname.setText("");
             }
         });
     }

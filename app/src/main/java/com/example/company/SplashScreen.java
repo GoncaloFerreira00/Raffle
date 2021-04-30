@@ -43,7 +43,6 @@ public class SplashScreen extends AppCompatActivity {
         FirebaseApp.initializeApp(context);
         MyTask task = new MyTask();
         task.execute();
-        maincall();
 
         executor = ContextCompat.getMainExecutor(SplashScreen.this);
         biometricPrompt = new BiometricPrompt(SplashScreen.this, executor, new BiometricPrompt.AuthenticationCallback() {
@@ -56,6 +55,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
                 super.onAuthenticationSucceeded(result);
+                maincall();
             }
 
             @Override

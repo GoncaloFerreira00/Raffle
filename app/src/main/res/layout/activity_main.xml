@@ -72,6 +72,7 @@
         android:hint="Nome"
         android:inputType="textPersonName"
         android:textColorHint="@color/colorTexGray"
+        app:layout_constraintEnd_toStartOf="@+id/button_deletename"
         app:layout_constraintStart_toStartOf="@+id/btn_copy_main"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -95,7 +96,6 @@
         android:background="@color/colorTrans"
         app:layout_constraintBottom_toTopOf="@+id/btn_copy_main"
         app:layout_constraintEnd_toEndOf="@+id/btn_copy_main"
-        app:layout_constraintStart_toEndOf="@+id/edit_name_main"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:srcCompat="@android:drawable/ic_delete" />
 

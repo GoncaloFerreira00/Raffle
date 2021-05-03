@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
         btnAcess = findViewById(R.id.btn_access_main);
         editname = findViewById(R.id.edit_name_main);
         btnCopySoldNum = findViewById(R.id.btn_soldNumbers);
+        btnDeleteName = findViewById(R.id.button_deletename);
 
         final DatabaseReference myRef = mDataBase.getReference("Available Numbers");
         myRef.addValueEventListener(new ValueEventListener() {
@@ -312,6 +313,7 @@ public class MainActivity extends AppCompatActivity {
                 editname.setText("");
             }
         });
+
     }
 
     @Override

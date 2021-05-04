@@ -30,19 +30,18 @@
 
     <Button
         android:id="@+id/btn_regist_register"
-        android:layout_width="151dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="112dp"
-        android:layout_marginBottom="60dp"
+        android:layout_width="182dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginBottom="120dp"
         android:backgroundTintMode="screen"
         android:drawableLeft="@drawable/ic_baseline_person_24"
         android:text=" Registar"
         android:textColor="@color/colorOne"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/edit_name_register"
-        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="@+id/edit_name_register"
-        app:layout_constraintTop_toBottomOf="@+id/edit_name_register" />
+        app:layout_constraintTop_toBottomOf="@+id/switch_admin" />
 
     <ImageView
         android:id="@+id/imageView4"
@@ -57,5 +56,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/ic_white" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <Switch
+        android:id="@+id/switch_admin"
+        android:layout_width="154dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="45dp"
+        android:text="Administrador"
+        app:layout_constraintEnd_toEndOf="@+id/edit_name_register"
+        app:layout_constraintStart_toStartOf="@+id/edit_name_register"
+        app:layout_constraintTop_toBottomOf="@+id/edit_name_register" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

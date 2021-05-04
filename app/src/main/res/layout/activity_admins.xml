@@ -62,19 +62,5 @@
             app:layout_constraintStart_toStartOf="@+id/txt_solds_admin"
             app:layout_constraintTop_toBottomOf="@+id/txt_solds_admin" />
 
-        <Button
-            android:id="@+id/btn_insertnewraffle_admin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:layout_marginBottom="100dp"
-            android:backgroundTintMode="screen"
-            android:drawableLeft="@drawable/ic_baseline_add_circle_outline_24"
-            android:text="Inserir novo sorteio"
-            android:textColor="@color/colorOne"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_profit" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

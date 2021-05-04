@@ -6,6 +6,5 @@
         <item name="colorPrimaryDark">@color/colorTwo</item>
         <item name="colorAccent">@color/colorThree</item>
     </style>
-
     <style name="AppThemeWithoutActionBar" parent="Theme.AppCompat.Light.NoActionBar"></style>
 </resources>

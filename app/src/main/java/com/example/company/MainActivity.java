@@ -22,6 +22,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tostas.Tostas;
@@ -45,9 +46,10 @@ public class MainActivity extends AppCompatActivity {
     CheckInternetConnection checkInternetConnection = new CheckInternetConnection(MainActivity.this);
     Utils utils = new Utils();
 
-    private Button btnCopy, btnAcess, btnCopySoldNum;
+    private Button btnCopy, btnAcess, btnCopySoldNum, btnReserved;
     private ImageButton btnDeleteName;
     private ScrollView scroll;
+    private TextView txt;
     private EditText editname;
     private ArrayList<String> check = new ArrayList<String>();
     private static final String TAG = "Erro";
@@ -71,6 +73,23 @@ public class MainActivity extends AppCompatActivity {
         editname = findViewById(R.id.edit_name_main);
         btnCopySoldNum = findViewById(R.id.btn_soldNumbers);
         btnDeleteName = findViewById(R.id.button_deletename);
+        btnReserved = findViewById(R.id.btn_reserved);
+        txt = findViewById(R.id.txt_opcional);
+
+        if(bd.getAdmin(10) == 1){
+            btnReserved.setEnabled(true);
+        } else {
+            btnReserved.setEnabled(false);
+            btnReserved.setVisibility(View.GONE);
+        }
+
+        btnReserved.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it = new Intent(getApplicationContext(), Reserved.class);
+                startActivity(it);
+            }
+        });
 
         final DatabaseReference myRef = mDataBase.getReference("Available Numbers");
         myRef.addValueEventListener(new ValueEventListener() {

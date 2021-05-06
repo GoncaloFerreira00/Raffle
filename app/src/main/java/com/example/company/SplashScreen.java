@@ -41,9 +41,12 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
+        DatabaseReference insertDebts = mDataBase.getReference("Debts").push();
+
         FirebaseApp.initializeApp(context);
         MyTask task = new MyTask();
         task.execute();
+        maincall();
 
 
         executor = ContextCompat.getMainExecutor(SplashScreen.this);
@@ -57,7 +60,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
                 super.onAuthenticationSucceeded(result);
-                maincall();
+
             }
 
             @Override

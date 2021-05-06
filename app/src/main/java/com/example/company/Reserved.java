@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -20,6 +21,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ScrollView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tostas.Tostas;
@@ -34,9 +36,13 @@ import java.util.ArrayList;
 public class Reserved extends AppCompatActivity {
 
     FirebaseDatabase mDataBase = FirebaseDatabase.getInstance();
+
     private ListView lst_oldRaffles;
     private Button btn_insert, btn_OldRaffles;
+    private TextView txtMoney, txtDebt, txtUpdate;
     boolean lstVisible = true;
+    Context ctx = Reserved.this;
+    MyBD bd = new MyBD(ctx);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,21 +52,78 @@ public class Reserved extends AppCompatActivity {
         btn_insert = findViewById(R.id.btn_insertnewraffle_reserved);
         lst_oldRaffles = findViewById(R.id.lst_oldRaffles);
         btn_OldRaffles = findViewById(R.id.btn_oldRaffles);
+        txtDebt = findViewById(R.id.txt_debt);
+        txtMoney = findViewById(R.id.txt_money);
+        txtUpdate = findViewById(R.id.txt_update);
 
-        btn_insert.setEnabled(false);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-//        btninsert.setEnabled(false);
+        DatabaseReference getMoneyDebt = mDataBase.getReference("Debts");
+        getMoneyDebt.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<Object> keys = new ArrayList<>();
+                ArrayList<Object> values = new ArrayList<>();
+
+                for (DataSnapshot ds: snapshot.getChildren()) {
+                    keys.add(ds.getKey());
+                    values.add(ds.getValue());
+                }
+
+                txtMoney.setText("Em Caixa: " + values.get(0).toString() + "€");
+                txtDebt.setText("Em Dívida: " + values.get(1).toString() + "€");
+
+                txtUpdate.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AlertDialog alertDialog = new AlertDialog.Builder(Reserved.this).create();
+                        final EditText input = new EditText(getApplicationContext());
+
+                        alertDialog.setTitle("Descontar");
+                        alertDialog.setMessage("Quanto?");
+                        input.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_CLASS_NUMBER);
+                        alertDialog.setView(input);
+                        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Confirmar",
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        if(input.getText().toString().matches("")) dialog.dismiss();
+                                        else {
+                                            int value = Integer.parseInt(String.valueOf(values.get(0)));
+                                            int calc = value + Integer.valueOf(input.getText().toString());
+
+                                            int value_ = Integer.parseInt(String.valueOf(values.get(1)));
+                                            int calc_ = value_ - Integer.valueOf(input.getText().toString());
+                                            mDataBase.getReference("Debts").child(String.valueOf(keys.get(0))).setValue(calc);
+                                            mDataBase.getReference("Debts").child(String.valueOf(keys.get(1))).setValue(calc_);
+
+                                            String name = "";
+                                            Tostas.info(Reserved.this, "Atualizado", Toast.LENGTH_SHORT);
+                                            mDataBase.getReference("MoneyUpdates").push().setValue(bd.getUserName(name) + " atualizou a caixa para " + calc + "€");
+                                        }
+
+                                    }
+                                });
+                        alertDialog.show();
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
         final DatabaseReference getSoldNumbers = mDataBase.getReference("Sold Numbers");
         getSoldNumbers.addValueEventListener(new ValueEventListener() {
             ArrayList<Object> soldnumbers = new ArrayList<>();
 
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
                 soldnumbers.clear();
                 for (DataSnapshot ds : snapshot.getChildren()
                 ) {

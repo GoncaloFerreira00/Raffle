@@ -16,20 +16,21 @@
 
         <Button
             android:id="@+id/btn_insertnewraffle_reserved"
-            android:layout_width="wrap_content"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="65dp"
             android:backgroundTintMode="screen"
             android:drawableLeft="@drawable/ic_baseline_add_circle_outline_24"
             android:text=" Inserir novo sorteio"
             android:textColor="@color/colorOne"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_update" />
 
         <Button
             android:id="@+id/btn_oldRaffles"
-            android:layout_width="wrap_content"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:backgroundTintMode="screen"
@@ -44,11 +45,57 @@
             android:id="@+id/lst_oldRaffles"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="200dp"
+            android:layout_marginTop="45dp"
             android:layout_marginBottom="100dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_oldRaffles"
+            app:layout_constraintTop_toBottomOf="@+id/button"
             tools:layout_editor_absoluteX="78dp" />
+
+        <TextView
+            android:id="@+id/txt_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:textSize="20sp"
+            android:textColor="@color/colorTextBlack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_debt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="20sp"
+            android:textColor="@color/colorTextBlack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_money" />
+
+        <TextView
+            android:id="@+id/txt_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="75dp"
+            android:text="@string/update"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_debt" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Adicionar dívida"
+            android:backgroundTintMode="screen"
+            android:drawableLeft="@drawable/ic_baseline_attach_money_24"
+            android:textColor="@color/colorOne"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_oldRaffles" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

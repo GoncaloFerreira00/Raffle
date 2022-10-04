@@ -52,9 +52,6 @@ public class Reserved extends AppCompatActivity {
         btn_insert = findViewById(R.id.btn_insertnewraffle_reserved);
         lst_oldRaffles = findViewById(R.id.lst_oldRaffles);
         btn_OldRaffles = findViewById(R.id.btn_oldRaffles);
-        txtDebt = findViewById(R.id.txt_debt);
-        txtMoney = findViewById(R.id.txt_money);
-        txtUpdate = findViewById(R.id.txt_update);
 
     }
 
@@ -72,43 +69,6 @@ public class Reserved extends AppCompatActivity {
                     keys.add(ds.getKey());
                     values.add(ds.getValue());
                 }
-
-                txtMoney.setText("Em Caixa: " + values.get(0).toString() + "€");
-                txtDebt.setText("Em Dívida: " + values.get(1).toString() + "€");
-
-                txtUpdate.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        AlertDialog alertDialog = new AlertDialog.Builder(Reserved.this).create();
-                        final EditText input = new EditText(getApplicationContext());
-
-                        alertDialog.setTitle("Descontar");
-                        alertDialog.setMessage("Quanto?");
-                        input.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_CLASS_NUMBER);
-                        alertDialog.setView(input);
-                        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Confirmar",
-                                new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        if(input.getText().toString().matches("")) dialog.dismiss();
-                                        else {
-                                            int value = Integer.parseInt(String.valueOf(values.get(0)));
-                                            int calc = value + Integer.valueOf(input.getText().toString());
-
-                                            int value_ = Integer.parseInt(String.valueOf(values.get(1)));
-                                            int calc_ = value_ - Integer.valueOf(input.getText().toString());
-                                            mDataBase.getReference("Debts").child(String.valueOf(keys.get(0))).setValue(calc);
-                                            mDataBase.getReference("Debts").child(String.valueOf(keys.get(1))).setValue(calc_);
-
-                                            String name = "";
-                                            Tostas.info(Reserved.this, "Atualizado", Toast.LENGTH_SHORT);
-                                            mDataBase.getReference("MoneyUpdates").push().setValue(bd.getUserName(name) + " atualizou a caixa para " + calc + "€");
-                                        }
-
-                                    }
-                                });
-                        alertDialog.show();
-                    }
-                });
             }
 
             @Override
@@ -144,7 +104,7 @@ public class Reserved extends AppCompatActivity {
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
                                         String auth = "1234";
-                                        if (input.getText().toString().equals(auth)) {
+                                        if (input.getText().toString().equals(auth.toString())) {
                                             //Preparing views
                                             LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
                                             View layout = inflater.inflate(R.layout.dialog_new_raffle, (ViewGroup) findViewById(R.id.custom_toast_layout));
@@ -184,17 +144,7 @@ public class Reserved extends AppCompatActivity {
                                                     }
                                                 }
                                             });
-
-
-                                            builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-                                                @Override
-                                                public void onClick(DialogInterface dialog, int which) {
-                                                    dialog.dismiss();
-                                                }
-                                            });
-                                            AlertDialog dialog_ = builder.create();
-                                            dialog_.show();
-
+                                            builder.show();
                                         } else {
                                             Tostas.error(Reserved.this, "Errado", Toast.LENGTH_LONG);
                                         }
@@ -255,6 +205,7 @@ public class Reserved extends AppCompatActivity {
                                         });
                                 alertDialog.show();
                             }
+
                         });
                     }
 

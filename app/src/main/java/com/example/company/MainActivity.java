@@ -63,6 +63,16 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        for (int i = 0; i < 100; i++) {
+            DatabaseReference myRefput = mDataBase.getReference("Available Numbers").push();
+            myRefput.setValue(i);
+        }
+//        final DatabaseReference getPass = mDataBase.getReference("Passe").push();
+//        getPass.setValue("entrar");
+        final DatabaseReference getPass = mDataBase.getReference("PassAdmin").push();
+        getPass.setValue("Admin");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
